@@ -1,0 +1,27 @@
+/* (구글)웹 폰트 불러오기 */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+/* 리셋css에서 a 태그 리셋이 덜 되었음 */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* common 일반사항 */
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.wrapper {
+    /* 사파리같은 브라우저에서 body 태그를 나타내지 않는 버그?가있어서
+    바디 안에 태그를 하나 만들어서 바디 대신 설정하는 추세. */
+    font: 14px "Noto Sans KR", sans-serif;
+    
+}
+
+.en {
+    font-family: "EXO 2", sans-serif;
+}
+
