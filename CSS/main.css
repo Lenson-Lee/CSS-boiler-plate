@@ -7,6 +7,13 @@ a {
     text-decoration: none;
 }
 
+button,
+input {
+    outline: none;
+    border: none;
+    color: #000;
+}
+
 /* common 일반사항 */
 .clearfix::after {
     content: '';
@@ -18,80 +25,94 @@ a {
     /* 사파리같은 브라우저에서 body 태그를 나타내지 않는 버그?가있어서
     바디 안에 태그를 하나 만들어서 바디 대신 설정하는 추세. */
     font: 14px "Noto Sans KR", sans-serif;
-    
 }
 
 .en {
     font-family: "EXO 2", sans-serif;
 }
+
 /* 모바일이 아니면 줄개행을 안함 */
-br .mo {
+
+br.mo {
     display: none;
 }
+
 
 /* header스타일 */
 header {
     width: 100%;
-             /* fositionfix주면 깨져서 미리 주는거다. */
+    /* fositionfix주면 깨져서 미리 주는거다. */
     height: 100px;
     line-height: 100px;
-    background: rgba(0,0,0, 0.2);
+    background: rgba(0, 0, 0, 0.2);
     position: fixed;
-    /* 포지션이 들어가면 z축이 튀어나옴 */
+    z-index: 1000;
+    /* 포지션이 들어가면 z축이 튀어나옴 + 나중에도 포지션을 사용하게 되니 점수를 미리 높게 */
 }
+
 header .inner-header {
     width: 84%;
     margin: 0 auto;
 }
+
 header .inner-header h1.logo {
     float: left;
     width: 200px;
     height: auto;
-             /* 로고이미지 줄이기 위한 가로너비 */
+    /* 로고이미지 줄이기 위한 가로너비 */
 }
+
 header .inner-header h1.logo img {
-             /* 이미지 비율 깨지지 않고 줄이는 꿀팁
+    /* 이미지 비율 깨지지 않고 줄이는 꿀팁
                  이미지를 편집헤서 넣는게 베서트지만 안될땐 이거사용
                  이미지박스 부모태그에 가로만 원하는 사이즈즈 세로auto로 지정
                   -> 박스 안에 이미지를 가로 100% */
     width: 100%;
 }
+
 header .inner-header nav.gnb {
     float: left;
     margin-left: 80px;
 }
+
 header .inner-header nav.gnb li {
     float: left;
     margin-right: 80px;
-          /* 직속부모가 아니라 조상에 클리어픽스 있으면 따로 설정 안해도 된다.
+    /* 직속부모가 아니라 조상에 클리어픽스 있으면 따로 설정 안해도 된다.
               -> header에 있어서 ㄱㅊ */
 }
-header .inner-header nav.gnb li a{
-         /* 텍스트 수정은 항상 인라인으로 */
+
+header .inner-header nav.gnb li a {
+    /* 텍스트 수정은 항상 인라인으로 */
     color: #fff;
     font-size: 16px;
     display: block;
-          /* 클릭하기 편하게 영역을 넓히기 위하여 */
+    /* 클릭하기 편하게 영역을 넓히기 위하여 */
 }
+
 header .inner-header nav.gnb li a:hover {
     color: #ff8342;
 }
+
 header .inner-header nav.tnb {
     float: right;
 
 }
-header .inner-header nav.tnb li{
+
+header .inner-header nav.tnb li {
     float: left;
     margin-right: 25px;
 }
+
 header .inner-header nav.tnb li a {
     color: #fff;
     font-size: 16px;
     text-align: center;
 }
+
 header .inner-header nav.tnb li:last-child a {
-/* ??? */
-    
+    /* ??? */
+
     display: block;
     width: 105px;
     border: 1px solid #fff;
@@ -99,15 +120,19 @@ header .inner-header nav.tnb li:last-child a {
     line-height: 2;
     margin-top: 33px;
 }
+
 header .inner-header nav.tnb li:last-child a:hover {
     color: #ff8342;
     background: #fff;
-}    
-header .inner-header nav.tnb li:first-child a i, header .inner-header nav.tnb li:nth-child(2) a i {
-        /* 코드 보면 아이콘이 i태그로 되어있다. */
+}
+
+header .inner-header nav.tnb li:first-child a i,
+header .inner-header nav.tnb li:nth-child(2) a i {
+    /* 코드 보면 아이콘이 i태그로 되어있다. */
     margin-right: 8px;
     font-size: 20px;
 }
+
 header .inner-header nav.tnb li:last-child a i {
     margin-left: 5px;
 }
@@ -116,36 +141,44 @@ header .inner-header nav.tnb li:last-child a i {
 /* section main style */
 section.main {
     background: url('../img/vis_4.jpg') no-repeat center/cover fixed;
-         /* height: auto;라서 컨텐츠 있는 만큼만 세로가 있다. vh로 세로 화면 가득 채우기 */
+    /* height: auto;라서 컨텐츠 있는 만큼만 세로가 있다. vh로 세로 화면 가득 채우기 */
     height: 100vh;
 }
+
 section.main .main-title {
-         /* 박스를 화면 정중앙에 배치공식. 외우기! */
+    /* 박스를 화면 정중앙에 배치공식. 외우기! */
     position: absolute;
-    left: 50%; top: 50%; transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
     color: #fff;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
     animation: uprising 1s;
 }
+
 @keyframes uprising {
     0% {
         top: 60%;
         opacity: 0;
     }
+
     100% {
         top: 50%;
         opacity: 1;
     }
 }
+
 section.main .main-title h2 {
     font-size: 55px;
-    margin-bottom: 20px;      
+    margin-bottom: 20px;
 }
+
 section.main .main-title p {
     font-size: 25px;
     margin-bottom: 25px;
 }
+
 section.main .main-title .view {
     display: block;
     /* main에서 텍스트 가운데정렬했지만 박스가 되면서 정렬이 풀림 */
@@ -159,38 +192,44 @@ section.main .main-title .view {
     position: relative;
     overflow: hidden;
 }
+
 section.main .main-title .view::after {
     content: '';
     width: 0%;
     /* maintitle 가로의 100%로 viewmore랑 크기가 안맞는다.
         -> view에 position을 주어 기준점을 만들어준다..*/
     height: 100%;
-    background: rgba(255,255,255, 0.4);
+    background: rgba(255, 255, 255, 0.4);
     display: block;
     position: absolute;
-    left: 0; top: 0;
+    left: 0;
+    top: 0;
     transition: 0.3s;
 }
+
 section.main .main-title .view:hover::after {
     width: 100%;
 }
 
 /* section about 스타일 */
-section.about {
+section {
     background: #fff;
-           /* 웹브라우저배경이 흰색이여서 흰색같은거지 transper?아무튼 아님 */
+    /* 웹브라우저배경이 흰색이여서 흰색같은거지 transper?아무튼 아님 */
     padding: 80px 0;
 }
-section.about .title {
+
+section .title {
     color: #000;
     text-align: center;
 
 }
-section.about .title h2 {
+
+section .title h2 {
     font-size: 45px;
-    margin-bottom: 5px;  
+    margin-bottom: 5px;
 }
-section.about .title p {
+
+section .title p {
     font-size: 18px;
     color: #555;
 }
@@ -200,19 +239,23 @@ section.about ul {
     margin: 30px auto;
     border-bottom: 1px solid #ddd;
 }
+
 section.about ul li {
     float: left;
     width: 33.33333%;
 }
+
 section.about ul li a .img-box {
     /* height: 300px; ->높이 고정하면 사진넘치는 버그 해결*/
     overflow: hidden;
 }
+
 section.about ul li a .img-box img {
     width: 100%;
     /* height: 100%; ->높이 고정하면 사진넘치는 버그 해결 */
     transition: 0.7s;
 }
+
 section.about ul li a:hover .img-box img {
     transform: scale(1.2);
 }
@@ -220,26 +263,30 @@ section.about ul li a:hover .img-box img {
 section.about ul li a .text {
     padding: 25px;
 }
+
 section.about ul li a .text h3 {
     font-size: 20px;
     margin-bottom: 10px;
 }
+
 section.about ul li a .text p {
     font-size: 16px;
     margin-bottom: 10px;
 }
+
 section.about ul li a .text p.more {
     font-weight: 700;
     text-transform: uppercase;
     padding-left: 40px;
     position: relative;
 
-        /* 일괄대문자만들기 lowercase는 소문자 */
+    /* 일괄대문자만들기 lowercase는 소문자 */
 }
+
 section.about ul li a .text p.more::before {
     content: '\f30b';
     font-family: 'Font awesome 5 Free';
-        /* 폰트어썸 아이콘 유니코드 사용하게하는 코드들 */
+    /* 폰트어썸 아이콘 유니코드 사용하게하는 코드들 */
     font-size: 15px;
     line-height: 30px;
 
@@ -252,4 +299,223 @@ section.about ul li a .text p.more::before {
     position: absolute;
     left: 0;
     top: -2px;
-    }
+}
+
+
+/* section innovation 스타일 */
+section.innovation {
+    background: #fff;
+    margin-bottom: 150px;
+}
+
+section.innovation .img-box {
+    width: 74%;
+    height: 540px;
+    background: url('../img/product_1.jpg') no-repeat center/cover;
+    margin: 50px auto 0;
+    position: relative;
+    /* 포지션이 있으면 z인덱스 늦게작성순으로 점수가 높아져서 메뉴바를 뚫고 나온다. */
+}
+
+section.innovation .img-box .inner {
+    /* ??? 왜 세로가 안나오지? */
+    background: #515151;
+    width: 80%;
+    position: absolute;
+    left: 50%;
+    bottom: -50px;
+    transform: translate(-50%, 0%);
+    /* 좌측 중앙정렬 ㅇ 세로 중앙정렬x */
+}
+
+section.innovation .img-box .inner h3 {
+    background: #fff;
+    font-size: 18px;
+    padding: 25px 40px;
+    box-sizing: border-box;
+}
+
+section.innovation .img-box .inner .bottom {
+    color: #fff;
+    line-height: 1.6;
+    padding: 35px 85px;
+    box-sizing: border-box;
+}
+
+section.innovation .img-box .inner .bottom p {
+    float: left;
+
+    width: 70%;
+}
+
+section.innovation .img-box .inner .bottom a {
+    float: right;
+    background: #ff8342;
+    border-radius: 50px;
+    padding: 7px 30px;
+}
+
+section.innovation .img-box .inner .bottom a:hover {
+    background: #f86010;
+}
+
+
+/* section me */
+section.me {
+    background: url('../img/me.jpg') no-repeat center/cover;
+    height: 100vh;
+    margin-bottom: 150px;
+    /* 다음 요소들과의 간격 미리 대비 */
+    padding: 80px 0;
+    /* 텍스트 여백 설정 */
+}
+
+section.me ul.list {
+    width: 74%;
+    margin: 50px auto 50px;
+    border-top: 2px solid #515151;
+    border-bottom: 2px solid #515151;
+}
+
+section.me ul.list>li {
+    padding: 30px 60px;
+    /*자식선택자 아니면 패딩이 두 번 들어간다. */
+}
+
+section.me ul.list>li:first-child {
+    border-bottom: 1px solid #ddd;
+}
+
+section.me .list>li h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    position: relative;
+    /* i태그 기준점 */
+}
+
+section.me .list>li h3 span {
+    color: #ff8342;
+    position: absolute;
+    left: -35px;
+    /* i 태그는 포지션으로 밖으로 나가게 해야 한다 */
+}
+
+section.me .list>li p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+section.me .list>li a.more {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+section.me .list>li a.more span {
+    color: #ff8342;
+    margin-left: 3px;
+    font-size: 14px;
+}
+
+section.me ul.in {
+    margin-bottom: 30px;
+}
+
+section.me ul.in li em {
+    float: left;
+    width: 13%;
+}
+
+section.me ul.in li p {
+    float: left;
+    width: 87%;
+    /* margin-left: 30px; 같은경우는 줄이 울퉁불퉁하니까 width를 줘서 박스너비를 100%비율로 고정적으로 맞춰두면
+            출발점이 동일해서 균일하다. */
+    position: relative;
+}
+
+section.me ul.in li p::before {
+/* ?? -> p에 포지션 안줘서 안뜸 */
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50px;
+    background: #ff8342;
+    position: absolute;
+    left: -40px;
+    top: 10px;
+}
+
+#incruit-btn {
+    /* id는 굳이 구구절절 안해도 된다. */
+    display: block;
+    width: 280px;
+    background: #ff8342;
+    margin: 0 auto;
+    padding: 10px 0;
+    border-radius: 50px;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    /* 마우스 대면 손모양 나오는거 */
+}
+
+
+
+/* section.sns */
+section.sns {
+    margin: 0 auto 0;
+    width: 74%;
+}
+section.sns ul.clearfix{
+    margin-top: 80px;
+}
+section.sns ul li {
+    float: left;
+    width: 32%;
+    margin-right: 1.3333%;
+}
+
+section.sns ul li .img-box {
+    width: 100%;
+    height: 261px;
+    overflow: hidden;
+    position: relative;
+}
+section.sns ul li .img-box img {
+    width: 100%;
+}
+/* 이미지박스 사이즈 조정 후 img파일태그 자체 너비를 100으로 맞추면 이미지 박스 너비에 맞춰서 100이 된다. */
+
+section.sns ul li .img-box::after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: 0.3s;
+    background: #ff8342;
+    height: 100%;
+}
+section.sns ul li .img-box:hover::after {
+    width: 100%;
+    position: absolute;
+}
+
+/* text */
+section.sns ul li .bottom {
+    padding: 40px 50px 80px;
+}
+section.sns ul li .bottom p.color {
+    color: #ff8342;
+    margin-bottom: 10px;
+}
+section.sns ul li .bottom p:nth-child(2) {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+section.sns ul li .bottom p.time {
+    color: #818181;
+}
+
+
+
+
