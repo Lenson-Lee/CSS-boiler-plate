@@ -487,12 +487,16 @@ section.sns ul li .img-box img {
 /* 이미지박스 사이즈 조정 후 img파일태그 자체 너비를 100으로 맞추면 이미지 박스 너비에 맞춰서 100이 된다. */
 
 section.sns ul li .img-box::after {
+    content: '';
+    width: 0%;
+    height: 100%;
+    background: #ff8342;
+    opacity: 80%;
+    display: block;
     position: absolute;
     left: 0;
     top: 0;
     transition: 0.3s;
-    background: #ff8342;
-    height: 100%;
 }
 section.sns ul li .img-box:hover::after {
     width: 100%;
@@ -519,3 +523,15 @@ section.sns ul li .bottom p.time {
 
 
 
+/* footer */
+footer {
+    border-top: 1.5px solid #808080;
+}
+footer .inner {
+    float: left;
+    background: red;   
+}
+footer .inner .list {
+    display: block;
+    border-bottom: 1px solid #000;
+}
